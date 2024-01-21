@@ -27,6 +27,8 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
+        server-username: ${{ secrets.PACKAGES_ACTOR }}
+        server-password: ${{ secrets.PACKAGES_TOKEN }}
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
