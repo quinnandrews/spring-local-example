@@ -33,8 +33,8 @@ jobs:
     - name: Build with Maven
       run: mvn -B -Pgithub package --file pom.xml
       env:
-        GITHUB_USER_REF: ${{ secrects.PACKAGES_ACTOR }}
-        GITHUB_TOKEN_REF: ${{ secrects.PACKAGES_TOKEN }}
+        GITHUB_USER_REF: ${{ secrets.PACKAGES_ACTOR }}
+        GITHUB_TOKEN_REF: ${{ secrets.PACKAGES_TOKEN }}
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     #- name: Update dependency graph
