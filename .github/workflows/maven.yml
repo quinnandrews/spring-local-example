@@ -27,10 +27,11 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-        server-username: ${{ secrets.PACKAGES_ACTOR }}
-        server-password: ${{ secrets.PACKAGES_TOKEN }}
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+      env:
+        GITHUB_ACTOR: ${{ secrets.PACKAGES_ACTOR }}
+        GITHUB_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     #- name: Update dependency graph
